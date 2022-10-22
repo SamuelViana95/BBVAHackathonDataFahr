@@ -17,7 +17,11 @@ app.set('views','./views')
 app.set('view engine', 'ejs')
 
 app.get('',(req, res)=>{
-    res.render('index')
+    res.render('index', {text: 'This is ejs'})
+})
+
+app.get('/about',(req, res)=>{
+    res.render('about', {text: 'About Page'})
 })
 
 // app.get('',(req,res)=>{  //sends a file to display it in the browser
