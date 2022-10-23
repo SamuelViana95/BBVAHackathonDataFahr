@@ -1,4 +1,4 @@
-# BBVAHackathonDataFahr
+# BBVA Hackathon DataFahr
 Repository of the BBVA Hackathon project - Team DataFahr
 
 ## Solucióes teorizadas
