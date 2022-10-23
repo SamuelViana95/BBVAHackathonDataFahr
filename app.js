@@ -68,7 +68,7 @@ app.post('/submit', function(req,res){
                 if (err) throw err;
             else {
                 console.log('Inserted '+ results.affectedRows+'row(s).');
-                res.render('index', {text: 'This is ejs'});
+                res.render('about', {text: 'Disfruta tu tarjeta'});
                 }  
     });
 
