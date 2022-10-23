@@ -68,7 +68,7 @@ app.post('/submit', function(req,res){
                 if (err) throw err;
             else {
                 console.log('Inserted '+ results.affectedRows+'row(s).');
-                res.render('index', {text: 'This is ejs'})
+                res.render('index', {text: 'This is ejs'});
                 }  
     });
 
@@ -78,6 +78,28 @@ app.post('/submit', function(req,res){
         if (err) throw err;
         else console.log('Done.')
     });
+
+});
+
+app.get('/consult', function(req, res){
+    mysqlConnection.query('SELECT * FROM people',
+        function(err,results,fields){
+
+            if(err) throw err;
+            else console.log('Selected '+ results.lenght + 'row(s)');
+            for (i=0; i< results.length; i++) {
+                console.log('Row: ' + JSON.stringify(results[i]));
+            }
+            console.log('Done');
+        });
+
+    mysqlConnection.end(
+        function (err) {
+            if (err) throw err;
+            else {console.log('Closing connection');
+                  res.render('index', {text: 'This is ejs'});
+        }
+        });
 
 });
 
