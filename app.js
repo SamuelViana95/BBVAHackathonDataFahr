@@ -81,27 +81,27 @@ app.post('/submit', function(req,res){
 
 });
 
-app.get('/consult', function(req, res){
-    mysqlConnection.query('SELECT * FROM people',
-        function(err,results,fields){
+// app.get('/consult', function(req, res){
+//     mysqlConnection.query('SELECT * FROM people',
+//         function(err,results,fields){
 
-            if(err) throw err;
-            else console.log('Selected '+ results.lenght + 'row(s)');
-            for (i=0; i< results.length; i++) {
-                console.log('Row: ' + JSON.stringify(results[i]));
-            }
-            console.log('Done');
-        });
+//             if(err) throw err;
+//             else console.log('Selected '+ results.lenght + 'row(s)');
+//             for (i=0; i< results.length; i++) {
+//                 console.log('Row: ' + JSON.stringify(results[i]));
+//             }
+//             console.log('Done');
+//         });
 
-    mysqlConnection.end(
-        function (err) {
-            if (err) throw err;
-            else {console.log('Closing connection');
-                  res.render('index', {text: 'This is ejs'});
-        }
-        });
+//     mysqlConnection.end(
+//         function (err) {
+//             if (err) throw err;
+//             else {console.log('Closing connection');
+//                   res.render('index', {text: 'This is ejs'});
+//         }
+//         });
 
-});
+// });
 
 
 
