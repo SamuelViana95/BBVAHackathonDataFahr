@@ -30,7 +30,7 @@ app.set('views','./views')
 app.set('view engine', 'ejs')
 // shows index.ejs
 app.get('',(req, res)=>{
-    res.render('index', {text: 'This is ejs'})
+    res.render('index', {text: 'BBVA'})
 })
 // shows about.ejs
 app.get('/about',(req, res)=>{
