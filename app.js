@@ -3,7 +3,8 @@ const http = require('http');
 // const events = require('events')
 const express = require('express'); // building web application and API
 const mysql = require('mysql');
-const exp = require('constants');
+const fs = require('fs');
+// const exp = require('constants');
 
 const port = process.env.PORT || 3000 ;
 const app = express(); // this is our app or instance of express
@@ -40,8 +41,53 @@ app.get('/about',(req, res)=>{
 //     res.sendFile(__dirname+'/views/index.html')
 // })
 
-// Send information 
+var mysqlConnection = mysql.createConnection({
+    host:'myclients.mysql.database.azure.com',
+    user:'andru@myclients',
+    password:'Myeasytwo!',
+    database: 'helloclient',
+    port: 3306,
+    ssl:{
+        ca:fs.readFileSync('BaltimoreCyberTrustRoot.crt.pem')
+        }
+});
+ //connect and check for errors
+mysqlConnection.connect((err)=>{
+    if(!err) //if there is no error
+    console.log('DB coonnect succeded');
+    else //if there is an error 
+    console.log('Db connection failed \n Error: '+JSON.stringify(err, undefined, 2));
+});
+
+// ---- Send information 
+app.post('/submit', function(req,res){
+    console.log(req.body);
+
+    mysqlConnection.query('INSERT INTO people (name, email) VALUES(?,?);',[req.body.id,req.body.name],
+            function(err,results,fields){
+                if (err) throw err;
+            else {
+                console.log('Inserted '+ results.affectedRows+'row(s).');
+                res.render('index', {text: 'This is ejs'})
+                }  
+    });
+
+    
+    
+    mysqlConnection.end(function(err){
+        if (err) throw err;
+        else console.log('Done.')
+    });
+
+});
+
+
+
+
 
 
 // Listen on port 3000
 app.listen(port, ()=> console.info(`listening on port ${port}`));
+
+
+
