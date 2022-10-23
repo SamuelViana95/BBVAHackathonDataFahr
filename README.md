@@ -1,7 +1,7 @@
 # BBVA Hackathon DataFahr
 Repository of the BBVA Hackathon project - Team DataFahr
 
-## Solucióes teorizadas
+## Soluciones teorizadas
 ### Solución para transmisión de datos
 Inicialmente se creó un código utilizando node.js para la transmisión de datos de la página web creando una conexión con un servicio de base de datos MySQL de Azure, con la intención de crear jobs que revisarán la base de datos de forma continua e hicieran operaciones sobre estos.
 
