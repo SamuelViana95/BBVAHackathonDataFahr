@@ -12,5 +12,6 @@ Modificando la información obtenida del cliente se puede realizar segmentación
 
 Implementación de chatbot de Azure dentro de la página web para brindar ayuda en el proceso de contratación
 
-###¿Qué se logro?
+### ¿Qué se logro?
 - Transmisión de datos entre la página y la base de datos de Azure MySQL. No obstante este enfoque fue descartado para realizar una conexión con Azure Event Hubs, no fue completado.
+- Maquetado de la solución de nube
